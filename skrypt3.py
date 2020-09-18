@@ -6,17 +6,23 @@ with open('survey_results_public.csv', 'rb') as f:
     data1 = pd.read_csv(f, usecols=['Respondent', 'Hobbyist', 'YearsCodePro', 'WorkWeekHrs'], index_col='Respondent')
 
     #zad.4
+
+    #delete rows with NaN values
     data1.dropna(inplace=True)
     print(data1.dtypes)
     column_values = data1[['YearsCodePro']].values.ravel()
+    # Get unique values of 'YearsOfCode' column
     unique_values = pd.unique(column_values)
     print(unique_values)
+    # Replace values which are not number
     data1.replace(to_replace={'Less than 1 year': '0', 'More than 50 years': '51'}, inplace=True)
 
     column_values = data1[['WorkWeekHrs']].values.ravel()
+    # Get unique values of 'WorkWeekHrs' column
     unique_values = pd.unique(column_values)
     print(unique_values)
 
+    # Convert values of columns YearsCodePro and WorkWeekHrs to int64 type
     data1 = data1.astype({'YearsCodePro': 'int64', 'WorkWeekHrs': 'int64'}, copy=False)
 
     print(data1.dtypes)
