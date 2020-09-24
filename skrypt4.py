@@ -41,7 +41,7 @@ sd = np.std(new_data1['CodeRevHrs'])
 new_data2 = new_data1[ (new_data1['CodeRevHrs'] > mean - 3 * sd)
     & (new_data1['CodeRevHrs'] < mean + 3 * sd)]
 
-# Delete utliers using quantiles
+# Delete outliers using quantiles
 new_data3 = new_data2[ (new_data2['CompTotal'] >= new_data2['CompTotal'].quantile(.15))
     & (new_data2['CompTotal'] <= new_data2['CompTotal'].quantile(.85))]
 
