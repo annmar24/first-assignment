@@ -38,11 +38,10 @@ new_data1 = data[ (data['ConvertedComp'] >= data['ConvertedComp'].quantile(.15))
 # Delete outliers using std from CodeRevHrs column
 mean = np.mean(new_data1['CodeRevHrs'])
 sd = np.std(new_data1['CodeRevHrs'])
-
-# Delete utliers using quantiles from CodeRevHrs column
 new_data2 = new_data1[ (new_data1['CodeRevHrs'] > mean - 3 * sd)
     & (new_data1['CodeRevHrs'] < mean + 3 * sd)]
 
+# Delete utliers using quantiles
 new_data3 = new_data2[ (new_data2['CompTotal'] >= new_data2['CompTotal'].quantile(.15))
     & (new_data2['CompTotal'] <= new_data2['CompTotal'].quantile(.85))]
 
