@@ -20,12 +20,11 @@ with open('survey_results_public.csv', 'rb') as f:
     column_values = data1[['WorkWeekHrs']].values.ravel()
     # Get unique values of 'WorkWeekHrs' column
     unique_values = pd.unique(column_values)
-    print(unique_values)
+    #print(unique_values)
 
     # Convert values of columns YearsCodePro and WorkWeekHrs to int64 type
     data1 = data1.astype({'YearsCodePro': 'int64', 'WorkWeekHrs': 'int64'}, copy=False)
-
-    print(data1.dtypes)
+    #print(data1.dtypes)
 
     #zad.5
     plt.plot(data1['YearsCodePro'], data1['WorkWeekHrs'], 'o', markersize=0.3)
@@ -35,7 +34,7 @@ with open('survey_results_public.csv', 'rb') as f:
 
     column_values = data1[['Hobbyist']].values.ravel()
     unique_values = pd.unique(column_values)
-    print(unique_values)
+    #print(unique_values)
 
     first_group = data1[(data1['Hobbyist'] == 'Yes')]
 
