@@ -15,7 +15,7 @@ with open('train.tsv', 'rb') as f:
     data['price_per_meter'] = price
     mean_per_meter = mean(data['price_per_meter'])
 
-    #select rows where there are more than twa room and price is lower than mean price per meter
+    #select rows where there are more than two rooms and price is lower than mean price per meter
     selector = data[(data['rooms'] >= 3) & (data['price_per_meter'] < mean_per_meter)]
     #write to file
     selector.to_csv('out1.csv', sep='\t', columns=['rooms', 'price', 'price_per_meter'], header=0, index=0)
